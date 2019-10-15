@@ -16,7 +16,18 @@ public class homeWork1 {
         System.out.println("Guess the number.");
 
         while(true){
-            int b = sc.nextInt();
+
+            int b;
+            while(true) {
+                if(!sc.hasNextInt()){
+                    System.out.println("Please, enter a number..");
+                    sc.next();
+                    continue;
+                }
+                b = sc.nextInt();
+                if(b <= 100 && b >= 1) break;
+                System.out.println("Please, enter a number in range [1 - 100]..");
+            }
             if(b > a) System.out.println("Your number is too big. Please, try again..");
             else if(b < a) System.out.println("Your number is too small. Please, try again..");
             else{
