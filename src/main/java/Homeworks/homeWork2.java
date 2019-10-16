@@ -19,10 +19,19 @@ public class homeWork2 {
                 else table[i][j] = ' ';
             }
         }
+        int d = random.nextInt(2);
+        int x, y;
+        if(d == 0) {
+            x = random.nextInt(3) + 1;
+            y = random.nextInt(5) + 1;
+        }
+        else {
+            x = random.nextInt(5) + 1;
+            y = random.nextInt(3) + 1;
+        }
 
-        int x = random.nextInt(5) + 1;
-        int y = random.nextInt(5) + 1;
         System.out.println("All set. Get ready to rumble!");
+        int won = 0;
         while(true){
             System.out.println("Please, enter a line: ");
 
@@ -52,14 +61,19 @@ public class homeWork2 {
                 System.out.println("Please, enter a number in range [1 - 5]..");
             }
 
-            boolean won = false;
 
-            if(a != x || b != y) {
+
+
+            if((a < x || a > x + 2 || b != y) && d == 0) {
+                table[a][b * 4] = '*';
+            }
+            else if ((b < y || b > y + 2 || a != x) && d == 1){
                 table[a][b * 4] = '*';
             }
             else{
+                if(table[a][b * 4] != 'x')won++;
                 table[a][b * 4] = 'x';
-                won = true;
+
             }
 
             System.out.println();
@@ -71,7 +85,7 @@ public class homeWork2 {
             }
             System.out.println();
 
-            if(won){
+            if(won == 3){
                 System.out.println("You won!");
                 break;
             }
