@@ -3,10 +3,26 @@ package Homeworks.hmw3;
 import java.util.Scanner;
 
 public class weekPlanner {
+    static Scanner sc = new Scanner(System.in);
+    public static int inputDay(String [][] schedule, String input){
+        Scanner sc = new Scanner(System.in);
+        int d = -1;
+        while(true) {
+            for(int i = 0 ; i < 7; i++){
+                if(schedule[i][0].equals(input)){
+                    d = i;
+                    break;
+                }
+            }
+            if(d != -1) return d;
+            System.out.println("Sorry, I don't understand you, please try again.");
+            input = sc.next();
+        }
+
+    }
 
     public static void main(String[] args) {
         String [][] schedule = new String [7][2];
-        Scanner sc = new Scanner(System.in);
         schedule[0][0] = "Sunday";
         schedule[1][0] = "Monday";
         schedule[2][0] = "Tuesday";
@@ -25,17 +41,23 @@ public class weekPlanner {
         schedule[6][1] = "meeting with friends";
 
 
+
         while(true){
-            System.out.print("Please, input the day of week: ");
-
+            System.out.println("Please, input the day of week: ");
             String input = sc.next();
-            if(input == "exit") break;
 
-            for(int i = 0 ; i < 7; i++){
-                if(schedule[i][0] == input){
-                    System.out.println(schedule[i][1]);
-                }
+            if(input.equals("exit")) return;
+            if(input.equals("change")){
+                input = sc.next();
+                int day = inputDay(schedule, input);
+                sc.nextLine();
+                schedule[day][1] = sc.nextLine();
+                continue;
             }
+            int day = inputDay(schedule, input);
+            System.out.println(schedule[day][1]);
+
+
         }
 
 
