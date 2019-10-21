@@ -1,3 +1,5 @@
+package Classworks;
+
 import java.util.Scanner;
 
 public class stars {

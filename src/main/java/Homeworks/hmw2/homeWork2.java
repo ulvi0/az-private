@@ -1,4 +1,4 @@
-package Homeworks;
+package Homeworks.hmw2;
 import java.sql.SQLOutput;
 import java.util.InputMismatchException;
 import java.util.Random;
