@@ -1,4 +1,4 @@
-package Classworks;
+package Classworks.randomstring;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -17,10 +17,12 @@ public class RandomString {
     }
 
     public static boolean Test(String s){
+        if(s == null) return false;
         if(s.length() ==  0) return false;
         for(int i = 0; i < s.length(); i++){
             if(!Character.isAlphabetic(s.charAt(i))) return false;
         }
+
         return true;
     }
 
