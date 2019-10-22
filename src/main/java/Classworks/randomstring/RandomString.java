@@ -29,6 +29,7 @@ public class RandomString {
     public static void main(String[] args) {
         int n;
         Scanner sc = new Scanner(System.in);
+        System.out.println("Please, enter the length of the array: ");
         n = sc.nextInt();
         String s;
         s = randomString(n);
