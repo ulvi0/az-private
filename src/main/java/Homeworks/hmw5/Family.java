@@ -1,13 +1,10 @@
-/*
-*       Haven't finished this one yet.
-* */
+
 
 
 
 package Homeworks.hmw5;
 
 
-import java.util.Arrays;
 import java.util.Objects;
 
 public class Family {
