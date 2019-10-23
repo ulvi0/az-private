@@ -2,7 +2,7 @@ package Homeworks.hmw3;
 
 import java.util.Scanner;
 
-public class weekPlanner {
+public class WeekPlanner {
     static Scanner sc = new Scanner(System.in);
 
 
@@ -17,6 +17,7 @@ public class weekPlanner {
 
             while(true) {
                 String input = sc.next();
+                input = input.toLowerCase();
                 if(input.equals("exit")){
                     System.out.println("Bye, " + name + "!");
                     return;
@@ -25,22 +26,23 @@ public class weekPlanner {
                 if(input.equals("change")) {
                     ch = true;
                     input = sc.next();
+                    input = input.toLowerCase();
                 }
-                int d = -1;
+                int day = -1;
                 for(int i = 0; i < 7; i++){
-                    if(schedule[i][0].equals(input)) d = i;
+                    if(schedule[i][0].equals(input)) day = i;
                 }
-                if(d == -1) {
+                if(day == -1) {
                     System.out.println("Sorry, I don't understand you, please try again.");
                     continue;
                 }
                 if(ch){
                     System.out.println("Please, enter new tasks: ");
                     sc.nextLine();
-                    schedule[d][1] = sc.nextLine();
+                    schedule[day][1] = sc.nextLine();
                     break;
                 }
-                System.out.println(schedule[d][1]);
+                System.out.println(schedule[day][1]);
                 break;
             }
 
@@ -52,13 +54,13 @@ public class weekPlanner {
     }
 
     public static void sched(String[][] schedule) {
-        schedule[0][0] = "Sunday";
-        schedule[1][0] = "Monday";
-        schedule[2][0] = "Tuesday";
-        schedule[3][0] = "Wednesday";
-        schedule[4][0] = "Thursday";
-        schedule[5][0] = "Friday";
-        schedule[6][0] = "Saturday";
+        schedule[0][0] = "sunday";
+        schedule[1][0] = "monday";
+        schedule[2][0] = "tuesday";
+        schedule[3][0] = "wednesday";
+        schedule[4][0] = "thursday";
+        schedule[5][0] = "friday";
+        schedule[6][0] = "saturday";
 
 
         schedule[0][1] = "do home work";

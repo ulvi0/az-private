@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class RandomString {
     static Random  random = new Random();
-    public static String randomString(int length){
+    public String randomString(int length){
         String s = "";
         for(int i = 0; i< length; i++){
             boolean up = random.nextBoolean();
@@ -16,7 +16,7 @@ public class RandomString {
         return s;
     }
 
-    public static boolean Test(String s){
+    public boolean Test(String s){
         if(s == null) return false;
         if(s.length() ==  0) return false;
         for(int i = 0; i < s.length(); i++){
@@ -28,13 +28,13 @@ public class RandomString {
 
     public static void main(String[] args) {
         int n;
-        Scanner sc = new Scanner(System.in);
+       /* Scanner sc = new Scanner(System.in);
         System.out.println("Please, enter the length of the array: ");
         n = sc.nextInt();
         String s;
         s = randomString(n);
         System.out.println(s);
         if(Test(s)) System.out.println("String is correct.");
-        else System.out.println("String is not correct.");
+        else System.out.println("String is not correct.");*/
     }
 }

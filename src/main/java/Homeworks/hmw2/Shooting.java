@@ -1,9 +1,7 @@
 package Homeworks.hmw2;
-import java.sql.SQLOutput;
-import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
-public class homeWork2 {
+public class Shooting {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
@@ -35,7 +33,7 @@ public class homeWork2 {
         while(true){
             System.out.println("Please, enter a line: ");
 
-            int a, b;
+            int guess_x, guess_y;
 
             while(true) {
                 if(!sc.hasNextInt()){
@@ -43,8 +41,8 @@ public class homeWork2 {
                     sc.next();
                     continue;
                 }
-                a = sc.nextInt();
-                if(a <= 5 && a >= 1) break;
+                guess_x = sc.nextInt();
+                if(guess_x <= 5 && guess_x >= 1) break;
                 System.out.println("Please, enter a number in range [1 - 5]..");
             }
 
@@ -56,23 +54,23 @@ public class homeWork2 {
                     sc.next();
                     continue;
                 }
-                b = sc.nextInt();
-                if(b <= 5 && b >= 1) break;
+                guess_y = sc.nextInt();
+                if(guess_y <= 5 && guess_y >= 1) break;
                 System.out.println("Please, enter a number in range [1 - 5]..");
             }
 
 
 
 
-            if((a < x || a > x + 2 || b != y) && d == 0) {
-                table[a][b * 4] = '*';
+            if((guess_x < x || guess_x > x + 2 || guess_y != y) && d == 0) {
+                table[guess_x][guess_y * 4] = '*';
             }
-            else if ((b < y || b > y + 2 || a != x) && d == 1){
-                table[a][b * 4] = '*';
+            else if ((guess_y < y || guess_y > y + 2 || guess_x != x) && d == 1){
+                table[guess_x][guess_y * 4] = '*';
             }
             else{
-                if(table[a][b * 4] != 'x')won++;
-                table[a][b * 4] = 'x';
+                if(table[guess_x][guess_y * 4] != 'x')won++;
+                table[guess_x][guess_y * 4] = 'x';
 
             }
 

@@ -2,7 +2,7 @@ package Homeworks.hmw1;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
-public class homeWork1 {
+public class Numbers {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -14,36 +14,36 @@ public class homeWork1 {
         Random random = new Random();
         int a = random.nextInt(101);
         int [] numbers = new int[500];
-        int cnt = 0;
+        int count = 0;
         System.out.println("Guess the number..");
 
         while(true){
 
-            int b;
+            int guess;
             while(true) {
                 if(!sc.hasNextInt()){
                     System.out.println("Please, enter a number..");
                     sc.next();
                     continue;
                 }
-                b = sc.nextInt();
-                if(b <= 100 && b >= 1) break;
+                guess = sc.nextInt();
+                if(guess <= 100 && guess >= 1) break;
                 System.out.println("Please, enter a number in range [1 - 100]..");
             }
-            numbers[cnt] = b;
-            cnt++;
+            numbers[count] = guess;
+            count++;
 
-            if(b > a) System.out.println("Your number is too big. Please, try again..");
-            else if(b < a) System.out.println("Your number is too small. Please, try again..");
+            if(guess > a) System.out.println("Your number is too big. Please, try again..");
+            else if(guess < a) System.out.println("Your number is too small. Please, try again..");
             else{
                 System.out.println("Congratulations, " + name + "!");
                 break;
             }
 
         }
-        Arrays.sort(numbers, 0, cnt);
+        Arrays.sort(numbers, 0, count);
         System.out.println("Your numbers: ");
-        for(int i = 0; i < cnt; i++){
+        for(int i = 0; i < count; i++){
             System.out.print(numbers[i]);
             System.out.print(' ');
         }

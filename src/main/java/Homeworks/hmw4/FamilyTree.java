@@ -1,133 +1,14 @@
 package Homeworks.hmw4;
 
-import Homeworks.hmw3.weekPlanner;
 
 import java.util.Arrays;
 import java.util.Random;
 
 public class FamilyTree {
-    public static class Pet{
-        String species;
-        String nickname;
-        int age;
-        int trickLevel;
-
-        public Pet() {
-        }
-
-        public Pet(String species, String nickname) {
-            this.species = species;
-            this.nickname = nickname;
-        }
-
-        public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
-            this.species = species;
-            this.nickname = nickname;
-            this.age = age;
-            this.trickLevel = trickLevel;
-            this.habits = habits;
-        }
-
-        String [] habits;
-
-        public void eat(){
-            System.out.println("I am eating.");
-        }
-        public void response(){
-            System.out.println("Hello, owner. I am -" + this.nickname + ". I miss you!");
-        }
-        public void foul(){
-            System.out.println("I need to cover it up.");
-        }
-
-        @Override
-        public String toString() {
-            return species + "{" +
-                    ((nickname != null)?("nickname='" + nickname + '\''):"") +
-                    ((age != 0)?(", age=" + age):"") +
-                    ((trickLevel != 0)?(", trickLevel=" + trickLevel):"") +
-                    ((habits != null)?(", habits=" + Arrays.toString(habits)):"") +
-                    '}';
-        }
-    }
-
-    public static class Human{
-        String name;
-        String surname;
-        int year;
-        int iq;
-        Pet pet;
-        Human mother;
-        Human father;
-        String [][] schedule;
-        public Human() {
-        }
-
-        public Human(String name, String surname, int year) {
-            this.name = name;
-            this.surname = surname;
-            this.year = year;
-        }
-
-        public Human(String name, String surname, int year, int iq, Pet pet, Human mother, Human father, String[][] schedule) {
-            this.name = name;
-            this.surname = surname;
-            this.year = year;
-            this.iq = iq;
-            this.pet = pet;
-            this.mother = mother;
-            this.father = father;
-            this.schedule = schedule;
-        }
-        public void greetPet(){
-            System.out.println("Hello, " + this.pet.nickname + "!");
-        }
-        public void  describePet(){
-            System.out.println("I have a " + this.pet.species + ", she is " + Integer.toString(this.pet.age) + " years old, she is " +
-                    ( (this.pet.trickLevel > 50) ? "very sly." : "almost not sly."));
-        }
-
-        @Override
-        public String toString() {
-            return "Human{" +
-                    ((name != null)? ("name='" + name + '\''):"") +
-                    ((surname != null)? (", surname='" + surname + '\''):"") +
-                    ((year != 0)? (", year=" + year):"") +
-                    ((iq != 0)? (", iq=" + iq ):"")+
-                    ((mother != null)? (", mother='" + mother.name + ' ' + mother.surname + '\''):"") +
-                    ((father != null)? (", father='" + father.name + ' ' + father.surname + '\''):"") +
-                    ((pet != null)? (", pet=" + pet.toString()):"") +
-                    '}';
-        }
-
-        public boolean feedPet(boolean b){
-            System.out.println("Isn't it time for feeding??");
-            Random random = new Random();
-            int r = random.nextInt();
-            if(b || r <= pet.trickLevel ){
-                System.out.println("Hm... I will feed " + pet.nickname + ".");
-                System.out.print(pet.nickname + ": ");
-                pet.eat();
-                return true;
-            }
-            System.out.println("I think " + pet.nickname + " is not hungry.");
-            return false;
-        }
-
-        public void showSchedule(){
-            System.out.println();
-            System.out.println("Schedule of the " + name + ": ");
-            for(int i = 0; i < 7; i++){
-                System.out.println(schedule[i][0] + ": " + schedule[i][1]);
-            }
-            System.out.println();
-        }
-
-    }
 
     public static void main(String[] args) {
         String [][] schedule = new String[7][2];
-        weekPlanner.sched(schedule);
+        sched(schedule);
 
 
         String [] habits = new String[] {"eat", "play", "sleep"};
@@ -183,5 +64,22 @@ public class FamilyTree {
         arya.showSchedule();
     }
 
+    public static void sched(String[][] schedule) {
+        schedule[0][0] = "sunday";
+        schedule[1][0] = "monday";
+        schedule[2][0] = "tuesday";
+        schedule[3][0] = "wednesday";
+        schedule[4][0] = "thursday";
+        schedule[5][0] = "friday";
+        schedule[6][0] = "saturday";
 
+
+        schedule[0][1] = "do home work";
+        schedule[1][1] = "go to courses; watch a film";
+        schedule[2][1] = "go to university";
+        schedule[3][1] = "read articles";
+        schedule[4][1] = "deadline of home work;";
+        schedule[5][1] = "go to courses";
+        schedule[6][1] = "meeting with friends";
+    }
 }
