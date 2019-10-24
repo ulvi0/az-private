@@ -114,4 +114,11 @@ public class Pet{
     public int hashCode() {
         return Objects.hash(species, nickname, age);
     }
+
+    @Override
+    @SuppressWarnings("deprecation")
+    protected void finalize() throws Throwable {
+        System.out.println( nickname + " is dead.");
+        super.finalize();
+    }
 }

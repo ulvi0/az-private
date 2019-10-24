@@ -143,4 +143,10 @@ public class Human{
     public int hashCode() {
         return Objects.hash(name, surname, year);
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println(name + " " + surname + " is dead.");
+        super.finalize();
+    }
 }
