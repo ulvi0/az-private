@@ -1,4 +1,4 @@
-package Classworks.oct24;
+package Classworks.oct24.RandomStrings;
 
 public class RandomApp {
     public static Result process (String origin){

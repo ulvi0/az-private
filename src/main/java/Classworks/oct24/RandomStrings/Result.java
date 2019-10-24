@@ -1,4 +1,4 @@
-package Classworks.oct24;
+package Classworks.oct24.RandomStrings;
 
 public  class Result {
     String ucc = new String();
