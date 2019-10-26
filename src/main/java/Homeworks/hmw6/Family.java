@@ -1,9 +1,4 @@
-
-
-
-
 package Homeworks.hmw6;
-
 
 import java.util.Objects;
 
@@ -85,7 +80,14 @@ public class Family {
     }
     //Other Methods
     public int countFamily(){
-        int count = 2;
+        int count = countChildren();
+        if(mother != null) count++;
+        if(father != null) count++;
+        return count;
+    }
+
+    public int countChildren(){
+        int count = 0;
         for( Human child : children){
             if(child != null) count++;
             else break;
@@ -146,8 +148,9 @@ public class Family {
     }
 
     @Override
-    protected void finalize() throws Throwable {
+    @SuppressWarnings("deprecation")
+    public void finalize() {
         System.out.println("Family is broken.");
-        super.finalize();
+
     }
 }

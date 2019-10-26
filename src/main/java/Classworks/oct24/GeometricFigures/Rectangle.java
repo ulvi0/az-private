@@ -1,6 +1,6 @@
 package Classworks.oct24.GeometricFigures;
 
-public class Rectangle extends AbstractFigure{
+public class Rectangle implements Figure{
     Point upperLeft;
     Point lowerRight;
 

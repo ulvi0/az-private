@@ -1,6 +1,6 @@
 package Classworks.oct24.GeometricFigures;
 
-public class Circle extends AbstractFigure{
+public class Circle implements Figure{
     Point c;
     int r;
 
@@ -20,9 +20,9 @@ public class Circle extends AbstractFigure{
         this.r = r;
     }
 
-    @Override
+
     public double area() {
-        return  (Math.PI * r * r);
+        return (Math.PI * r * r);
     }
 
     public Circle(Point c, int r) {

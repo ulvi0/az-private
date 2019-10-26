@@ -4,11 +4,13 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Pet{
-    private String species;
+    private Species species;
     private String nickname;
     private int age;
     private int trickLevel;
-
+    enum Species{
+        Wolf, Dog, Cat, Hamster;
+    }
 
     static {
         System.out.println("Pet class is being loaded.");
@@ -20,12 +22,12 @@ public class Pet{
     public Pet() {
     }
 
-    public Pet(String species, String nickname) {
+    public Pet(Species species, String nickname) {
         this.species = species;
         this.nickname = nickname;
     }
 
-    public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
+    public Pet(Species species, String nickname, int age, int trickLevel, String[] habits) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
@@ -49,7 +51,7 @@ public class Pet{
     //toString
     @Override
     public String toString() {
-        return species + "{" +
+        return species.name() + "{" +
                 ((nickname != null)?("nickname='" + nickname + '\''):"") +
                 ((age != 0)?(", age=" + age):"") +
                 ((trickLevel != 0)?(", trickLevel=" + trickLevel):"") +
@@ -58,11 +60,13 @@ public class Pet{
     }
 
     //Getters and Setters
-    public String getSpecies() {
+
+
+    public Species getSpecies() {
         return species;
     }
 
-    public void setSpecies(String species) {
+    public void setSpecies(Species species) {
         this.species = species;
     }
 

@@ -145,6 +145,7 @@ public class Human{
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     protected void finalize() throws Throwable {
         System.out.println(name + " " + surname + " is dead.");
         super.finalize();

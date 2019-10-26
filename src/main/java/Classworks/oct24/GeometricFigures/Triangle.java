@@ -1,6 +1,6 @@
 package Classworks.oct24.GeometricFigures;
 
-public class Triangle extends AbstractFigure {
+public class Triangle implements Figure {
 
     private Point p1;
     private Point p2;

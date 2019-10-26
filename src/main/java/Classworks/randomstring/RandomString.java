@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class RandomString {
     static Random  random = new Random();
-    public String randomString(int length){
+    public String generateRandomString(int length){
         String s = "";
         for(int i = 0; i< length; i++){
             boolean up = random.nextBoolean();

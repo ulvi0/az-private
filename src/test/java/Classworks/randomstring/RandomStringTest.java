@@ -13,7 +13,7 @@ public class RandomStringTest {
     @Before
     public void before(){
         t = new RandomString();
-        generated = t.randomString(10);
+        generated = t.generateRandomString(10);
     }
 
 
@@ -35,7 +35,7 @@ public class RandomStringTest {
     @Test
     public void randomString3() {
         RandomString t = new RandomString();
-        String generated = t.randomString(10);
+        String generated = t.generateRandomString(10);
 
     }
 }

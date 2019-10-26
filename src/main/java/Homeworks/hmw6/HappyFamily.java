@@ -1,14 +1,17 @@
 package Homeworks.hmw6;
 
 public class HappyFamily {
+    enum DaysOfWeek{
+        Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+    };
     public static void main(String[] args) throws Throwable {
         String [][] schedule = new String[7][2];
-        sched(schedule);
+        CreateSchedule(schedule);
 
 
         String [] habits = new String[] {"eat", "play", "sleep"};
 
-        Pet nymeria = new Pet("Direwolf", "Nymeria", 4, 56, habits );
+        Pet nymeria = new Pet(Pet.Species.Wolf, "Nymeria", 4, 56, habits );
 
         Human ned = new Human("Ned", "Stark", 263);
         Human catelyn = new Human("Catelyn", "Stark", 264);
@@ -28,56 +31,36 @@ public class HappyFamily {
         Starks.addChild(rickon);
         Starks.setPet(nymeria);
 
+
         System.out.print("\n\n\n");
         System.out.println(Starks.toString());
         System.out.print("\n\n\n");
 
 
+        //Calling Finalize Methods
+        Starks.deleteChild(robb);
+        robb = null;
+        Starks.setPet(null);
+        nymeria = null;
+        int numberOfChildren = Starks.countChildren();
+        for (int i = 0; i < numberOfChildren; i++) {
+            Starks.deleteChild(0);
+        }
+        //System.out.println(Starks.toString());
+        ned.setFamily(null);
+        catelyn.setFamily(null);
+        Starks = null;
+        System.gc();
 
-        Starks.deleteChild(3);
-        System.out.println(Starks.toString());
-        System.out.print("\n\n\n");
-
-        Starks.deleteChild(bran);
-        System.out.println(Starks.toString());
-        System.out.print("\n\n\n");
-
-        System.out.println("Child: ");
-        arya.greetPet();
-        arya.describePet();
-        arya.feedPet(false);
-        System.out.print("\n\n\n");
-
-
-
-        System.out.println("Pet: ");
-        nymeria.response();
-        nymeria.eat();
-        nymeria.foul();
-
-
-        //arya.finalize();
-        //arya.sleep(20000);
-
-
-
-
-        System.out.println("Child: ");
-        arya.greetPet();
-        arya.describePet();
-        arya.feedPet(false);
-        System.out.print("\n\n\n");
+        for(int i = 0; i < 1000000; i++);
 
     }
 
-    public static void sched(String[][] schedule) {
-        schedule[0][0] = "sunday";
-        schedule[1][0] = "monday";
-        schedule[2][0] = "tuesday";
-        schedule[3][0] = "wednesday";
-        schedule[4][0] = "thursday";
-        schedule[5][0] = "friday";
-        schedule[6][0] = "saturday";
+    public static void CreateSchedule(String[][] schedule) {
+        int i = 0;
+        for(DaysOfWeek day:  DaysOfWeek.values()){
+            schedule[i++][0] = day.name();
+        }
 
 
         schedule[0][1] = "do home work";

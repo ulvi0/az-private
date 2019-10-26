@@ -7,7 +7,7 @@ public class HappyFamily {
 
     public static void main(String[] args) {
         String [][] schedule = new String[7][2];
-        sched(schedule);
+        CreateSchedule(schedule);
 
 
         String [] habits = new String[] {"eat", "play", "sleep"};
@@ -61,7 +61,7 @@ public class HappyFamily {
 
     }
 
-    public static void sched(String[][] schedule) {
+    public static void CreateSchedule(String[][] schedule) {
         schedule[0][0] = "sunday";
         schedule[1][0] = "monday";
         schedule[2][0] = "tuesday";
