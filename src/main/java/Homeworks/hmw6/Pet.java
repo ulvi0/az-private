@@ -3,21 +3,24 @@ package Homeworks.hmw6;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Pet{
+public class Pet {
     private Species species;
     private String nickname;
     private int age;
     private int trickLevel;
-    enum Species{
+
+    enum Species {
         Wolf, Dog, Cat, Hamster;
     }
 
     static {
         System.out.println("Pet class is being loaded.");
     }
+
     {
         System.out.println("New Pet created.");
     }
+
     //Constructors
     public Pet() {
     }
@@ -35,16 +38,18 @@ public class Pet{
         this.habits = habits;
     }
 
-    private String [] habits;
+    private String[] habits;
 
     // Other Methods
-    public void eat(){
+    public void eat() {
         System.out.println("I am eating.");
     }
-    public void response(){
+
+    public void response() {
         System.out.println("Hello, owner. I am -" + this.nickname + ". I miss you!");
     }
-    public void foul(){
+
+    public void foul() {
         System.out.println("I need to cover it up.");
     }
 
@@ -52,10 +57,10 @@ public class Pet{
     @Override
     public String toString() {
         return species.name() + "{" +
-                ((nickname != null)?("nickname='" + nickname + '\''):"") +
-                ((age != 0)?(", age=" + age):"") +
-                ((trickLevel != 0)?(", trickLevel=" + trickLevel):"") +
-                ((habits != null)?(", habits=" + Arrays.toString(habits)):"") +
+                ((nickname != null) ? ("nickname='" + nickname + '\'') : "") +
+                ((age != 0) ? (", age=" + age) : "") +
+                ((trickLevel != 0) ? (", trickLevel=" + trickLevel) : "") +
+                ((habits != null) ? (", habits=" + Arrays.toString(habits)) : "") +
                 '}';
     }
 
@@ -122,7 +127,7 @@ public class Pet{
     @Override
     @SuppressWarnings("deprecation")
     protected void finalize() throws Throwable {
-        System.out.println( nickname + " is dead.");
+        System.out.println(nickname + " is dead.");
         super.finalize();
     }
 }

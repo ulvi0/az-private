@@ -1,8 +1,13 @@
 package Classworks.oct24.GeometricFigures;
 
-public class Circle implements Figure{
+public class Circle implements Figure,Comparable{
     Point c;
     int r;
+
+    public Circle() {
+        setC(new Point());
+        setR((int)(Math.random() * 20));
+    }
 
     public Point getC() {
         return c;
@@ -28,5 +33,11 @@ public class Circle implements Figure{
     public Circle(Point c, int r) {
         this.c = c;
         this.r = r;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Figure that = (Figure) o;
+        return (int)(this.area() - that.area());
     }
 }

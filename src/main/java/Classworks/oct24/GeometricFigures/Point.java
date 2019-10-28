@@ -1,8 +1,16 @@
 package Classworks.oct24.GeometricFigures;
 
+import java.util.Random;
+
 public class Point {
     private int x;
     private int y;
+
+    public Point() {
+        Random random = new Random();
+        setX(random.nextInt(20));
+        setY(random.nextInt(20));
+    }
 
     public Point(int x, int y) {
         this.x = x;

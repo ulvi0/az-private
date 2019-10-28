@@ -44,6 +44,10 @@ public class Family {
         return children;
     }
 
+    public Human getChild(int index) {
+        return children[index];
+    }
+
     public void setChildren(Human[] children) {
         this.children = children;
     }
@@ -65,7 +69,7 @@ public class Family {
                 "mother=" + mother.toString() + "\n"+
                 ", father=" + father.toString() + "\n";
 
-        if(countFamily() > 2){
+        if(countChildren() > 0){
             s+=", children=[";
             for(Human child : children){
                 if(child == null) break;
@@ -137,9 +141,8 @@ public class Family {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Family)) return false;
-        Family family = (Family) o;
-        return mother.equals(family.mother) &&
-                father.equals(family.father);
+        Family that = (Family) o;
+        return this.hashCode() == that.hashCode();
     }
 
     @Override

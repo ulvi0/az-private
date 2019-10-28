@@ -1,10 +1,16 @@
 package Classworks.oct24.GeometricFigures;
 
-public class Triangle implements Figure {
+public class Triangle implements Figure, Comparable {
 
     private Point p1;
     private Point p2;
     private Point p3;
+
+    public Triangle() {
+        p1 = new Point();
+        p2 = new Point();
+        p3 = new Point();
+    }
 
     public Point P1() {
         return p1;
@@ -43,5 +49,10 @@ public class Triangle implements Figure {
         this.p1 = p1;
         this.p2 = p2;
         this.p3 = p3;
+    }
+    @Override
+    public int compareTo(Object o) {
+        Figure that = (Figure) o;
+        return (int)(this.area() - that.area());
     }
 }
