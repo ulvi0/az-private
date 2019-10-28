@@ -14,7 +14,7 @@ public class HappyFamily {
         System.out.println(Starks.toString());
         System.out.print("\n\n\n");
 
-        Human ned = Starks.getFather();
+         Human ned = Starks.getFather();
         Human catelyn = Starks.getMother();
         Human [] children = Starks.getChildren();
         Human robb = children[3];
