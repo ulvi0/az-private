@@ -1,13 +1,13 @@
-package Homeworks.hmw5;
-
+package Homeworks.hmw7;
 
 import java.util.Objects;
+import java.util.Random;
 
-public class Family {
+public class Family implements HumanCreator{
 
-    private Human mother;
-    private Human father;
-    private Human [] children;
+    private Woman mother;
+    private Man father;
+    private Human[] children;
     private Pet pet;
 
     static {
@@ -19,30 +19,34 @@ public class Family {
     }
 
     //Constructor
-    public Family(Human mother, Human father) {
+    public Family(Woman mother, Man father) {
         this.mother = mother;
         this.father = father;
         children = new Human[20];
     }
 
     // Getters and Setters
-    public Human getMother() {
+    public Woman getMother() {
         return mother;
     }
-    public void setMother(Human mother) {
+    public void setMother(Woman mother) {
         this.mother = mother;
     }
 
-    public Human getFather() {
+    public Man getFather() {
         return father;
     }
 
-    public void setFather(Human father) {
+    public void setFather(Man father) {
         this.father = father;
     }
 
     public Human[] getChildren() {
         return children;
+    }
+
+    public Human getChild(int index) {
+        return children[index];
     }
 
     public void setChildren(Human[] children) {
@@ -66,7 +70,7 @@ public class Family {
                 "mother=" + mother.toString() + "\n"+
                 ", father=" + father.toString() + "\n";
 
-        if(countFamily() > 2){
+        if(countChildren() > 0){
             s+=", children=[";
             for(Human child : children){
                 if(child == null) break;
@@ -81,7 +85,14 @@ public class Family {
     }
     //Other Methods
     public int countFamily(){
-        int count = 2;
+        int count = countChildren();
+        if(mother != null) count++;
+        if(father != null) count++;
+        return count;
+    }
+
+    public int countChildren(){
+        int count = 0;
         for( Human child : children){
             if(child != null) count++;
             else break;
@@ -126,18 +137,43 @@ public class Family {
         return false;
     }
 
+    public Human bornChild(){
+        boolean isMan;
+        Random random = new Random();
+        isMan = random.nextBoolean();
+
+        Names names = new Names();
+        int iq = (getFather().getIq() + getMother().getIq())/2;
+        if(isMan){
+
+            Man newborn = new Man(names.generateBoyName(), getFather().getSurname(), 2019, iq, null);
+            addChild(newborn);
+            return newborn;
+        }
+        else{
+            Woman newborn = new Woman(names.generateGirlName(), getFather().getSurname(), 2019, iq, null);
+            addChild(newborn);
+            return newborn;
+        }
+
+    }
     // Equals and hashCode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Family)) return false;
-        Family family = (Family) o;
-        return mother.equals(family.mother) &&
-                father.equals(family.father);
+        Family that = (Family) o;
+        return this.hashCode() == that.hashCode();
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(mother, father);
+    }
+
+    @Override
+    @SuppressWarnings("deprecation")
+    public void finalize() {
+        System.out.println("Family is broken.");
     }
 }

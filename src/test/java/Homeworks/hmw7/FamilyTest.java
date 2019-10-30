@@ -1,10 +1,14 @@
-package Homeworks.hmw6;
+package Homeworks.hmw7;
 
+import Homeworks.hmw6.Family;
+import Homeworks.hmw6.HappyFamily;
+import Homeworks.hmw6.Human;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class FamilyTest {
     Family family;

@@ -1,10 +1,10 @@
-package Homeworks.hmw6;
+package Homeworks.hmw7;
 
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
 
-public class Human {
+public abstract class Human {
     private String name;
     private String surname;
     private int year;
@@ -88,12 +88,7 @@ public class Human {
     }
 
     //Other methods
-    public boolean greetPet() {
-        if (this.family == null) return false;
-        if (this.family.getPet() == null) return false;
-        System.out.println("Hello, " + this.family.getPet().getNickname() + "!");
-        return true;
-    }
+    public abstract boolean greetPet();
 
     public boolean describePet() {
         if (this.family == null) return false;

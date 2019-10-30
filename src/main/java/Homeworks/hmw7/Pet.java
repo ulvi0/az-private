@@ -1,11 +1,9 @@
-package Homeworks.hmw6;
-
-import Homeworks.hmw6.Species;
+package Homeworks.hmw7;
 
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Pet {
+public abstract class Pet {
     private Species species;
     private String nickname;
     private int age;
@@ -23,13 +21,11 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(Species species, String nickname) {
-        this.species = species;
+    public Pet(String nickname) {
         this.nickname = nickname;
     }
 
-    public Pet(Species species, String nickname, int age, int trickLevel, String[] habits) {
-        this.species = species;
+    public Pet(String nickname, int age, int trickLevel, String[] habits) {
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
@@ -43,13 +39,8 @@ public class Pet {
         System.out.println("I am eating.");
     }
 
-    public void response() {
-        System.out.println("Hello, owner. I am -" + this.nickname + ". I miss you!");
-    }
+    public abstract void response();
 
-    public void foul() {
-        System.out.println("I need to cover it up.");
-    }
 
     //toString
     @Override
