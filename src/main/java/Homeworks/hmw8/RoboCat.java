@@ -1,10 +1,12 @@
-package Homeworks.hmw7;
+package Homeworks.hmw8;
 
-public class RoboCat extends Pet{
+import java.util.Set;
+
+public class RoboCat extends Pet {
     {
-        setSpecies(Species.ROBOCAT);
+        setSpecies(Species.ROBO_CAT);
     }
-    public RoboCat(String nickname, int age, int trickLevel, String[] habits) {
+    public RoboCat(String nickname, int age, int trickLevel, Set<String> habits) {
         super(nickname, age, trickLevel, habits);
     }
     @Override

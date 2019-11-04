@@ -1,4 +1,4 @@
-package Homeworks.hmw7;
+package Homeworks.hmw8;
 
 import Homeworks.hmw6.Family;
 import Homeworks.hmw6.HappyFamily;

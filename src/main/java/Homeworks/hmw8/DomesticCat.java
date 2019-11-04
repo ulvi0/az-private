@@ -1,10 +1,12 @@
-package Homeworks.hmw7;
+package Homeworks.hmw8;
+
+import java.util.Set;
 
 public class DomesticCat extends Pet {
     {
-        setSpecies(Species.CAT);
+        setSpecies(Species.DOMESTIC_CAT);
     }
-    public DomesticCat(String nickname, int age, int trickLevel, String[] habits) {
+    public DomesticCat(String nickname, int age, int trickLevel, Set<String> habits) {
         super(nickname, age, trickLevel, habits);
     }
     @Override

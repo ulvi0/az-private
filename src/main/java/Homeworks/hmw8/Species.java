@@ -1,13 +1,13 @@
-package Homeworks.hmw7;
+package Homeworks.hmw8;
 
 
 public enum Species {
     WOLF(true, false, 4),
     DOG(true, false, 4),
-    CAT(true, false, 4),
+    DOMESTIC_CAT(true, false, 4),
     HAMSTER(true, false, 4),
     FISH(false, false, 0),
-    ROBOCAT(false, false, 4),
+    ROBO_CAT(false, false, 4),
     UNKNOWN();
 
     boolean hasFur, canFly;
