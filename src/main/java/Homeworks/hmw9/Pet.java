@@ -9,6 +9,7 @@ public abstract class Pet {
     private int age;
     private int trickLevel;
     private Set<String> habits;
+
     static {
         System.out.println("Pet class is being loaded.");
     }
@@ -31,7 +32,6 @@ public abstract class Pet {
         this.trickLevel = trickLevel;
         this.habits = habits;
     }
-
 
 
     // Other Methods

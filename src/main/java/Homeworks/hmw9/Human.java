@@ -1,5 +1,6 @@
 package Homeworks.hmw9;
 
+import java.time.LocalDate;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
@@ -11,46 +12,60 @@ public abstract class Human {
     private int iq;
     private Family family;
     private Map<DaysOfWeek, String> schedule;
+
     static {
         System.out.println("Human class is being loaded.");
     }
+
     {
         System.out.println("New Human created.");
     }
+
     //Getters and Setters
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public String getSurname() {
         return surname;
     }
+
     public void setSurname(String surname) {
         this.surname = surname;
     }
+
     public int getYear() {
         return year;
     }
+
     public void setYear(int year) {
         this.year = year;
     }
+
     public int getIq() {
         return iq;
     }
+
     public void setIq(int iq) {
         this.iq = iq;
     }
+
     public Family getFamily() {
         return family;
     }
+
     public void setFamily(Family family) {
         this.family = family;
     }
+
     public Map<DaysOfWeek, String> getSchedule() {
         return schedule;
     }
+
     public void setSchedule(Map<DaysOfWeek, String> schedule) {
         this.schedule = schedule;
     }
@@ -58,11 +73,13 @@ public abstract class Human {
     //Constructors
     public Human() {
     }
+
     public Human(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
         this.year = year;
     }
+
     public Human(String name, String surname, int year, int iq, Map<DaysOfWeek, String> schedule) {
         this.name = name;
         this.surname = surname;
@@ -72,7 +89,13 @@ public abstract class Human {
     }
 
     //Other methods
+    public int describeAge(){
+        int currentYear = LocalDate.now().getYear();
+        return currentYear - year;
+    }
+
     public abstract boolean greetPet();
+
     public boolean describePet() {
         if (this.family == null) return false;
         if (this.family.getPet(0) == null) return false;
@@ -80,6 +103,7 @@ public abstract class Human {
                 ((this.family.getPet(0).getTrickLevel() > 50) ? "very sly." : "almost not sly."));
         return true;
     }
+
     public boolean feedPet(boolean b) {
         if (this.family == null) return false;
         if (this.family.getPet(0) == null) return false;
@@ -95,6 +119,7 @@ public abstract class Human {
         System.out.println("I think " + family.getPet(0).getNickname() + " is not hungry.");
         return false;
     }
+
     //toString
     @Override
     public String toString() {
@@ -106,8 +131,6 @@ public abstract class Human {
                 ((schedule != null) ? (", schedule=" + schedule) : "") +
                 '}';
     }
-
-
 
 
     //Equals and hashCode

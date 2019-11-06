@@ -3,8 +3,9 @@ package Homeworks.hmw9;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CollectionFamilyDao implements FamilyDao{
-    List<Family> families = new ArrayList<>();
+public class CollectionFamilyDao implements FamilyDao {
+    private List<Family> families = new ArrayList<>();
+
     @Override
     public List<Family> getAllFamilies() {
         return families;
@@ -19,12 +20,11 @@ public class CollectionFamilyDao implements FamilyDao{
     public int getIndexOf(Family family) {
         for (int i = 0; i < families.size(); i++) {
             Family current = families.get(i);
-            if(current.equals(family)) {
+            if (current.equals(family)) {
                 return i;
             }
-            return -1;
         }
-        return 0;
+        return -1;
     }
 
     @Override
@@ -37,14 +37,16 @@ public class CollectionFamilyDao implements FamilyDao{
     public boolean deleteFamily(Family family) {
         return families.remove(family);
     }
-    public boolean exits(Family family){
-        for (Family current: families) {
-            if(current.equals(family)) return true;
+
+    public boolean exists(Family family) {
+        for (Family current : families) {
+            if (current.equals(family)) return true;
         }
         return false;
     }
+
     @Override
     public void saveFamily(Family family) {
-        if(!exits(family)) families.add(family);
+        if (!exists(family)) families.add(family);
     }
 }

@@ -11,8 +11,8 @@ public class HappyFamily {
     public static Map<DaysOfWeek, String> createSchedule() {
         Map<DaysOfWeek, String> schedule = new HashMap<>();
         schedule.put(DaysOfWeek.MONDAY, "do home work");
-        schedule.put(DaysOfWeek.TUESDAY, "go to courses; watch a film"); ;
-        schedule.put(DaysOfWeek.WEDNESDAY,  "go to university");
+        schedule.put(DaysOfWeek.TUESDAY, "go to courses; watch a film");
+        schedule.put(DaysOfWeek.WEDNESDAY, "go to university");
         schedule.put(DaysOfWeek.THURSDAY, "read articles");
         schedule.put(DaysOfWeek.FRIDAY, "deadline of home work");
         schedule.put(DaysOfWeek.SATURDAY, "go to courses");
@@ -22,7 +22,6 @@ public class HappyFamily {
 
     public Family createFamily() {
         Map<DaysOfWeek, String> schedule = createSchedule();
-
 
 
         Man ned = new Man("Ned", "Stark", 263);
@@ -72,7 +71,7 @@ public class HappyFamily {
         System.out.println(cat.toString() + "\n");
 
         System.out.println("Fish: ");
-        habits = new HashSet<String>(){{
+        habits = new HashSet<String>() {{
             add("Forget things");
         }};
         Fish fish = new Fish("Cleo", 2, 70, habits);
@@ -81,7 +80,7 @@ public class HappyFamily {
 
 
         System.out.println("Robocat: ");
-        habits = new HashSet<String>(){{
+        habits = new HashSet<String>() {{
             add("clean rooms");
             add("pass the butter");
             add("calculate radioactivity level");

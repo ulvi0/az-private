@@ -25,100 +25,116 @@ public class Family implements HumanCreator {
 
     // Getters and Setters
     public Woman getMother() {
-        return (Woman)mother;
+        return (Woman) mother;
     }
+
     public void setMother(Woman mother) {
         this.mother = mother;
     }
+
     public Man getFather() {
         return (Man) father;
     }
+
     public void setFather(Man father) {
         this.father = father;
     }
+
     public Human getChild(int index) {
         return children.get(index);
     }
+
     public List<Human> getChildren() {
         return children;
     }
+
     public void setChildren(List<Human> children) {
         this.children = children;
     }
+
     public Set<Pet> getPets() {
         return pets;
     }
-    public Pet getPet(int index){
+
+    public Pet getPet(int index) {
         Iterator it = pets.iterator();
-        for(int i = 0; i < index; i++) {
-            if(it.hasNext()) it.next();
+        for (int i = 0; i < index; i++) {
+            if (it.hasNext()) it.next();
         }
-        return (Pet)it.next();
+        return (Pet) it.next();
     }
+
     //toString
     @Override
     public String toString() {
-        String s=  "Family{" +
-                "mother=" + mother.toString() + "\n"+
+        String s = "Family{" +
+                "mother=" + mother.toString() + "\n" +
                 ", father=" + father.toString() + "\n";
 
-        if(countChildren() > 0){
-            s+=", children=[";
-            for(Human child : children){
-                if(child == null) break;
+        if (countChildren() > 0) {
+            s += ", children=[";
+            for (Human child : children) {
+                if (child == null) break;
                 s += child.toString() + "\n";
             }
-            s+= "]";
+            s += "]";
         }
 
-        s+=((pets != null)?(", pet=" + pets) : "") +
+        s += ((pets != null) ? (", pet=" + pets) : "") +
                 '}';
         return s;
     }
+
     //Other Methods
-    public int countFamily(){
+    public int countFamily() {
         int count = countChildren();
-        if(mother != null) count++;
-        if(father != null) count++;
+        if (mother != null) count++;
+        if (father != null) count++;
         return count;
     }
-    public int countChildren(){
+
+    public int countChildren() {
         return children.size();
     }
-    public void addChild(Human new_child){
-        if(new_child != null)
-        children.add(new_child);
+
+    public void addChild(Human new_child) {
+        if (new_child != null)
+            children.add(new_child);
     }
-    public void addPet(Pet new_pet){
-        if(new_pet != null)
-        pets.add(new_pet);
+
+    public void addPet(Pet new_pet) {
+        if (new_pet != null)
+            pets.add(new_pet);
     }
-    public boolean deleteChild(int index){
-        if(index >= children.size()) return false;
+
+    public boolean deleteChild(int index) {
+        if (index >= children.size()) return false;
         children.remove(index);
         return true;
     }
-    public boolean deleteChild(Human child){
+
+    public boolean deleteChild(Human child) {
         return children.remove(child);
     }
-    public Human bornChild(){
+
+    public Human bornChild() {
         boolean isMan;
         Random random = new Random();
         isMan = random.nextBoolean();
         Names names = new Names();
-        int iq = (getFather().getIq() + getMother().getIq())/2;
-        if(isMan){
+        int iq = (getFather().getIq() + getMother().getIq()) / 2;
+        if (isMan) {
             Man newborn = new Man(names.generateBoyName(), getFather().getSurname(), 2019, iq, null);
             addChild(newborn);
             return newborn;
-        }
-        else{
+        } else {
             Woman newborn = new Woman(names.generateGirlName(), getFather().getSurname(), 2019, iq, null);
             addChild(newborn);
             return newborn;
         }
 
     }
+
     // Equals and hashCode
     @Override
     public boolean equals(Object o) {
@@ -128,10 +144,12 @@ public class Family implements HumanCreator {
         return mother.equals(family.mother) &&
                 father.equals(family.father);
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(mother, father);
     }
+
     @Override
     @SuppressWarnings("deprecation")
     public void finalize() {

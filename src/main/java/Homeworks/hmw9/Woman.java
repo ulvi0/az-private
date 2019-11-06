@@ -22,7 +22,7 @@ public final class Woman extends Human {
         return true;
     }
 
-    public void makeup(){
+    public void makeup() {
         System.out.println("I am doing makeup.");
     }
 }
