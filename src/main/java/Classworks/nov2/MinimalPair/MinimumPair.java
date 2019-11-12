@@ -8,7 +8,7 @@ public class MinimumPair {
 
     public static void main(String[] args) {
         RandomArray randomArray = new RandomArray();
-        ArrayList<Integer> array = randomArray.generateRandomArray(30);
+        ArrayList<Integer> array = randomArray.generateRandomArray(30, 0, 100);
         System.out.println(array);
 
         Pair minPair = IntStream
