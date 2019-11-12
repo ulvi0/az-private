@@ -1,6 +1,5 @@
 package Classworks.nov12.Rename;
 
-
 import java.util.Arrays;
 
 public class Merge {
