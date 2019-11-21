@@ -7,7 +7,7 @@ public class SortArray {
 
     public static void main(String[] args) {
         RandomNumbersGenerator app = new RandomNumbersGenerator();
-        ArrayList<Integer> arrayList = app.generateRandomNumbers(30);
+        ArrayList<Integer> arrayList = app.generateRandomNumbers(30, 0, 0);
 
         System.out.println(arrayList.toString());
 
